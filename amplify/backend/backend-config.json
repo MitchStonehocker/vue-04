@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"vuetest01142413a6": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}

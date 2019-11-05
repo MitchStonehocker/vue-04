@@ -1,0 +1,19 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "vue-test-01-dev-20191104162919-authRole",
+            "UnauthRoleArn": "arn:aws:iam::496165201814:role/vue-test-01-dev-20191104162919-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::496165201814:role/vue-test-01-dev-20191104162919-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "vue-test-01-dev-20191104162919-deployment",
+            "UnauthRoleName": "vue-test-01-dev-20191104162919-unauthRole",
+            "StackName": "vue-test-01-dev-20191104162919",
+            "StackId": "arn:aws:cloudformation:us-east-1:496165201814:stack/vue-test-01-dev-20191104162919/2a198890-ff4a-11e9-beeb-0e0d3a451244"
+        },
+        "categories": {
+            "auth": {
+                "vuetest01142413a6": {}
+            }
+        }
+    }
+}
