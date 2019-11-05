@@ -1,32 +1,59 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-toolbar
+      height="50px"
+      fixed
+      color="#970747" dark
+      :extended="extended"
+      :prominent="prominent"
+      :dense="dense"
+      :collapse="collapse"
+      :flat="flat"
+      :src="bg ? 'https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg' : undefined"
+      :extension-height="extensionHeight"
+    >
+      <v-toolbar-title to="/">Vue-04</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-toolbar-items>
+        <v-btn text to="/signup">Sign Up</v-btn>
+        <v-btn text to="/signin">Sign In</v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+
+    <v-content>
+      <router-view />
+    </v-content>
+
+    <v-footer fixed color="#970747" dark>
+      <v-spacer></v-spacer>
+      <div>&copy; {{ new Date().getFullYear() }} &nbsp;-&nbsp; ATIO Consulting</div>
+      <v-spacer></v-spacer>
+    </v-footer>
+
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+//import Home from './views/Home';
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: 'App',
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  components: {
+    //Home
+  },
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  data: () => ({
+    extended: false,
+    extendedSlot: false,
+    prominent: false,
+    dense: false,
+    collapse: false,
+    flat: false,
+    bg: false,
+    extensionHeight: 48,
+  }),
+};
+</script>
