@@ -1,12 +1,24 @@
 // src/views/About.vue
 
 <template>
-  <div class="about">
-    <v-container>
-    <h1>This is an about page</h1>
-    </v-container>
-  </div>
+  <!-- <Dashboard> -->
+    <div class="about">
+      <v-container>
+      <h1>This is the about page...</h1>
+      </v-container>
+    </div>
+  <!-- </Dashboard> -->
 </template>
+
+<script>
+  // import Dashboard from '../layouts/Dashboard'
+
+  // export default {
+  //   created() {
+  //     this.$emit(`update:layout`,About)
+  //   }
+  // }
+</script>
 
 <style>
   .container{
@@ -14,7 +26,7 @@
     padding: 25px;
   }
   h1 {
-  color: #0c1b74
+    color: #0c1b74
   }
   p {
     color: #0b0431

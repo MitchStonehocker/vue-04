@@ -36,7 +36,7 @@
         <v-btn color="primary">Sign In</v-btn>
         <v-spacer />
         <v-btn color="secondary" to="/">Cancel</v-btn>
-        <v-btn color="secondary" to="/signup">Sign Up</v-btn>
+        <v-btn color="secondary" to="/signup">Go To Sign Up</v-btn>
 
       </v-card-actions>
      </v-card>

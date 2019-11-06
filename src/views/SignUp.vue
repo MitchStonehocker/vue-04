@@ -3,7 +3,8 @@
 <template>
 
   <v-flex xs12 sm8 md4>
-    <v-card class="elevation-12">
+    <amplify-authenticator></amplify-authenticator>
+    <!-- <v-card class="elevation-12">
       <v-toolbar
         color="primary"
         dark
@@ -43,10 +44,10 @@
         <v-btn color="primary">Sign Up</v-btn>
         <v-spacer />
         <v-btn color="secondary" to="/">Cancel</v-btn>
-        <v-btn color="secondary" to="/signin">Sign In</v-btn>
+        <v-btn color="secondary" to="/signin">Go To Sign In</v-btn>
 
       </v-card-actions>
-    </v-card>
+    </v-card> -->
   </v-flex>
 
 </template>

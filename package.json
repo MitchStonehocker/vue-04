@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@mdi/font": "^3.6.95",
+    "aws-amplify": "^1.2.4",
+    "aws-amplify-vue": "^0.3.3",
     "core-js": "^3.3.2",
     "roboto-fontface": "*",
     "vue": "^2.6.10",

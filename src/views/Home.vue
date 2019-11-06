@@ -21,19 +21,19 @@
             Welcome to AITO Consulting
           </h1>
           <p class="subheading font-weight-regular">
-            For help or collaboration with your computation heavy single page applications, 
-            <br>please  
+            For construction of, or collaboration with, 
+            your computation heavy single page applications, please  
             <a href="https://aitoconsulting.org" target="_blank">contact</a>
             us.
             <br><br>
             Our toolbox is full of: 
-            <br>ReactJS 
-            <br>VueJS 
-            <br>NodeJS 
-            <br>Python 
-            <br>R 
-            <br>Mathematica
-            <br>AWS
+            <br><a href="https://aws.amazon.com/console/" target="_blank">AWS</a>
+            <br><a href="https://reactjs.org/" target="_blank">ReactJS</a> 
+            <br><a href="https://vuejs.org/" target="_blank">VueJS</a> 
+            <br><a href="https://nodejs.org/en/" target="_blank">NodeJS</a> 
+            <br><a href="https://www.wolfram.com/mathematica/" target="_blank">Mathematica</a>
+            <br><a href="https://www.python.org/" target="_blank">Python</a> 
+            <br><a href="https://www.r-project.org/" target="_blank">R</a> 
           </p>
         </v-flex>
       </v-layout>
