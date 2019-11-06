@@ -22,7 +22,7 @@
         <p class="subheading font-weight-regular">
           For help or collaboration with your computation heavy single page applications, 
           <br>please  
-          <a href="https://community.vuetifyjs.com" target="_blank">contact</a>
+          <a href="https://aitoconsulting.org" target="_blank">contact</a>
           us.
           <br><br>
           We specialize in: 
