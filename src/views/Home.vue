@@ -27,6 +27,59 @@
             us.
             <br><br>
             Our toolbox is full of: 
+            <!-- <v-row no-gutters>
+              <v-col cols="6">
+                <v-card
+                  class="pa-2"
+                  outlined
+                  tile
+                >
+                  <a href="https://reactjs.org/" target="_blank">ReactJS</a>
+                  <br/>
+                  <a href="https://vuejs.org/" target="_blank">VueJS</a>
+                </v-card>
+              </v-col>
+              </v-row>
+              <v-row no-gutters>
+              <v-col cols="3">
+                <v-card
+                  class="pa-2"
+                  outlined
+                  tile
+                >
+                  
+                  <br/>
+                  <a href="https://nodejs.org/en/" target="_blank">NodeJS</a>
+                  <br/>
+                  
+                  <br/>
+                </v-card>
+              </v-col>
+              <v-col cols="3">
+                <v-card
+                  class="pa-2"
+                  outlined
+                  tile
+                >
+                  <a href="https://www.wolfram.com/mathematica/" target="_blank">Mathematica</a>
+                  <br/>
+                  <a href="https://www.python.org/" target="_blank">Python</a>
+                  <br/>
+                  <a href="https://www.r-project.org/" target="_blank">R</a>
+                </v-card>
+              </v-col>
+              </v-row>
+              <v-row no-gutters>
+              <v-col cols="6">
+                <v-card
+                  class="pa-2"
+                  outlined
+                  tile
+                >
+                  <a href="https://aws.amazon.com/console/" target="_blank">AWS</a>
+                </v-card>
+              </v-col>
+            </v-row> -->
             <br><a href="https://aws.amazon.com/console/" target="_blank">AWS</a>
             <br><a href="https://reactjs.org/" target="_blank">ReactJS</a> 
             <br><a href="https://vuejs.org/" target="_blank">VueJS</a> 
@@ -35,6 +88,9 @@
             <br><a href="https://www.python.org/" target="_blank">Python</a> 
             <br><a href="https://www.r-project.org/" target="_blank">R</a> 
           </p>
+ 
+            
+   
         </v-flex>
       </v-layout>
     </v-container>
