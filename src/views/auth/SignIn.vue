@@ -113,10 +113,12 @@ export default {
       this.isSubmitting = true
       Auth.signIn(this.email, this.password)
       .then(user => console.log('>>>-signIn-user->',user))
-      .catch(err => console.log('>>>-signIn-err->',err))
-      //alert("trying to sign in...")
+      .catch(err => {
+        console.log('>>>-signIn-err->',err)
+        this.signedIn = false})
+        
       this.isSubmitting = false
-      this.$router.push({ path: '/' })
+      this.$router.push({ path: '/userhome' })
     }
   }
 }
