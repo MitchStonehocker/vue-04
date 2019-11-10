@@ -116,7 +116,7 @@ import SignUpIn from '../../layouts/SignUpIn';
 import { Auth } from 'aws-amplify'
 import { AmplifyEventBus } from 'aws-amplify-vue'
 import { required, email, minLength } from 'vuelidate/lib/validators'
-import { hasNumber, hasLowerCaseLetter, hasUpperCaseLetter, hasSpecialCharacter } from '../../utilities/password'
+import { hasNumber, hasLowerCaseLetter, hasUpperCaseLetter, hasSpecialCharacter } from '../../utilities/validations'
 
 export default {
   data() {
