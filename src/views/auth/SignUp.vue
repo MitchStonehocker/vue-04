@@ -36,46 +36,60 @@
       <v-card-text>
         <v-form>
           <v-text-field
-            v-model="userName"
             label="User Name"
             name="userName"
             prepend-icon="person"
             type="text"
             requried
+            v-model="userName"
+            @input="$v.userName.$touch()"
+            @blur="$v.userName.$touch()"
+            :error-messages="userNameErrors"
           />
           <v-text-field
-            v-model="email"
             label="Email"
             name="email"
             prepend-icon="email"
             type="email"
             requried
+            v-model="email"
+            @input="$v.email.$touch()"
+            @blur="$v.email.$touch()"
+            :error-messages="emailErrors"
           />
 
           <v-text-field
-            v-model="password"
             id="password"
             label="Password"
             name="password"
             prepend-icon="lock"
             type="password"
             requried
+            v-model="password"
+            @input="$v.password.$touch()"
+            @blur="$v.password.$touch()"
+            :error-messages="passwordErrors"
           />
           <v-text-field
-            v-model="confirmPassword"
             id="confirmPassword"
             label="Confirm Password"
             name="confirmPassword"
             prepend-icon="lock"
             type="password"
             requried
+            v-model="confirmPassword"
+            @input="$v.confirmPassword.$touch()"
+            @blur="$v.confirmPassword.$touch()"
+            :error-messages="confirmPasswordErrors"
           />
 
           <v-checkbox
-            v-model="checkbox"
-            :rules="[v => !!v || 'Agree to terms to access site.']"
-            label="Agree to terms of use?"
+            label="Agree to AITO Consulting terms of use?"
             requried
+            v-model="userAgreement"
+            @change="$v.userAgreement.$touch()"
+            @blur="$v.userAgreement.$touch()"
+            :error-messages="userAgreementErrors"
           />
 
         </v-form>
@@ -101,6 +115,8 @@
 import SignUpIn from '../../layouts/SignUpIn';
 import { Auth } from 'aws-amplify'
 import { AmplifyEventBus } from 'aws-amplify-vue'
+import { required, email, minLength } from 'vuelidate/lib/validators'
+import { hasNumber, hasLowerCaseLetter, hasUpperCaseLetter, hasSpecialCharacter } from '../../utilities/password'
 
 export default {
   data() {
@@ -109,10 +125,61 @@ export default {
       email: '',
       password: '',
       confirmPassword: '',
-      checkbox: false,
+      userAgreement: false,
       signedIn: false,
       isSubmitting: false
     }
+  },
+  validations: {
+    userName: { required },
+    email: { required, email },
+    password: { required, minLength: minLength(8), hasNumber, hasLowerCaseLetter, hasUpperCaseLetter, hasSpecialCharacter },
+    confirmPassword: { required },
+    userAgreement: { 
+      checked(val) {
+        return val
+      }
+     },
+  },
+  computed: {
+    userNameErrors () {
+      const errors = []
+      if (!this.$v.userName.$dirty) return errors
+      !this.$v.userName.required && errors.push('User name is required.')
+      return errors
+    },
+    emailErrors () {
+      const errors = []
+      if (!this.$v.email.$dirty) return errors
+      !this.$v.email.required && errors.push('Email is required.')
+      !this.$v.email.email && errors.push('Valid email is required (__@__.__).')
+      return errors
+    },
+    passwordErrors () {
+      const errors = []
+      if (!this.$v.password.$dirty) return errors
+      !this.$v.password.required && errors.push('Password is required.')
+      !this.$v.password.hasLowerCaseLetter && errors.push('Password must have 1 lower case letter.')
+      !this.$v.password.hasUpperCaseLetter && errors.push('Password must have 1 upper case letter.')
+      !this.$v.password.hasNumber && errors.push('Password must have 1 number.')
+      !this.$v.password.hasSpecialCharacter && errors.push('Password must have 1 special character.')
+      !this.$v.password.minLength && errors.push('Password must have 8 or more characters.')
+      return errors
+    },
+    confirmPasswordErrors () {
+      const errors = []
+      if (!this.$v.confirmPassword.$dirty) return errors
+      //(this.$v.confirmPassword.required === this.$v.password) && errors.push("Passwords don't match.")
+      !this.$v.confirmPassword.required && errors.push('Password match is required.')
+      !(this.password === this.confirmPassword) && errors.push('Password does not match.')
+      return errors
+    },
+    userAgreementErrors () {
+      const errors = []
+      if (!this.$v.userAgreement.$dirty) return errors
+      !this.$v.userAgreement.checked && errors.push('Agreement to terms is required.')
+      return errors
+    },
   },
   created() {
     this.$emit(`update:layout`,SignUpIn)
@@ -140,23 +207,28 @@ export default {
       this.isSubmitting = false
     },
     async signUp() {
-      this.isSubmitting = true
-      Auth.signUp({
-        username: this.email,
-        password: this.password,
-        attributes: {
-          email: this.email,
-          name: this.userName
-        },
-        validationData: [] // optional
-      })
-      .then((data) => {
-        console.log('>>>-SignUp-data->',data)
+      this.$v.$touch()
+      if (!this.$v.$dirty) {
+        this.isSubmitting = true
+        Auth.signUp({
+          username: this.email,
+          password: this.password,
+          attributes: {
+            email: this.email,
+            name: this.userName
+          },
+          validationData: [] // optional
+        })
+        .then(() => {
+          //console.log('>>>-SignUp-data->',data)
+          this.isSubmitting = false
+          this.$router.push({ path: '/confirmsignup', query: { email: this.email } })
+        })
+        .catch(err => this.console.log(err))
         this.isSubmitting = false
-        this.$router.push({ path: '/confirmsignup', query: { email: this.email } })
-      })
-      .catch(err => this.console.log(err))
-      //this.isSubmitting = false
+      } else {
+        console.log("User sign up validations failed")
+      }
     }
   }
 }

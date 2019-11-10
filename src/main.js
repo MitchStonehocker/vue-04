@@ -7,9 +7,12 @@ import '@mdi/font/css/materialdesignicons.css'
 
 import Amplify, * as AmplifyModules from 'aws-amplify';
 import { AmplifyPlugin } from 'aws-amplify-vue';
+
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
+
 import aws_exports from './aws-exports';
 Amplify.configure(aws_exports);
-
 Vue.use(AmplifyPlugin, AmplifyModules)
 
 Vue.config.productionTip = false

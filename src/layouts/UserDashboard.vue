@@ -120,7 +120,7 @@
 
       </v-container>
     </v-content>
-    
+
     <v-btn
         bottom
         color="pink"
@@ -264,8 +264,8 @@
         methods: {
             async signout() {
                 Auth.signOut()
-                    .then(data => {
-                        console.log('>>>-signout-data->', data)
+                    .then(() => {
+                        //console.log('>>>-signout-data->', data)
                         this.signedIn = false
                         this.$router.push({ path: '/' })
                         })

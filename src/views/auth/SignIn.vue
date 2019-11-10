@@ -112,7 +112,10 @@ export default {
     async signIn() {
       this.isSubmitting = true
       Auth.signIn(this.email, this.password)
-      .then(user => console.log('>>>-signIn-user->',user))
+      .then(() => {
+        //console.log('>>>-signIn-user->',user)
+        this.signedIn = true
+        })
       .catch(err => {
         console.log('>>>-signIn-err->',err)
         this.signedIn = false})
